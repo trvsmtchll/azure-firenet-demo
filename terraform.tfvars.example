@@ -1,0 +1,43 @@
+# General
+controller_ip = "YOURCONTROLLERIP"
+username      = "admin"
+password      = "YOURCONTROLLERPASSWORD"
+ha_gw         = true
+
+# Access Account Names
+azure_account_name = "My-Azure-Acct"
+
+# NGFW Variables
+// See module doc for examples https://registry.terraform.io/modules/terraform-aviatrix-modules/azure-transit-firenet/aviatrix/1.0.1 
+firewall_image         = "Palo Alto Networks VM-Series Next-Generation Firewall Bundle 1"
+firewall_image_version = "9.1.0"
+
+# Gateway Sizes
+azure_gw_size = "Standard_B1ms"
+
+# Transit Network Variables
+azure_transit_cidr1 = "172.21.0.0/18"
+azure_region1       = "East US"
+
+# Transit Spoke Parameters
+azure_spoke_params = {
+  azure_spoke1 = {
+    azure_spoke_vpc_name = "wvd-desktop-spoke"
+    azure_spoke_vpc_cidr = "172.19.0.0/18"
+    azure_spoke_region   = "East US"
+    azure_spoke_gw_name  = "wvd-desktop-gw"
+  }
+  azure_spoke2 = {
+    azure_spoke_vpc_name = "shared-svcs"
+    azure_spoke_vpc_cidr = "172.18.0.0/18"
+    azure_spoke_region   = "East US"
+    azure_spoke_gw_name  = "shared-svc-gw"
+  }
+  azure_spoke3 = {
+    azure_spoke_vpc_name = "application"
+    azure_spoke_vpc_cidr = "172.20.0.0/18"
+    azure_spoke_region   = "East US"
+    azure_spoke_gw_name  = "application-gw"
+  }
+}
+
